@@ -1,26 +1,37 @@
-# Program to check if a number is prime or not
-
-num = 29
-
-# To take input from the user
-#num = int(input("Enter a number: "))
-
-# define a flag variable
-flag = False
-
-if num == 1:
-    print(num, "is not a prime number")
-elif num > 1:
-    # check for factors
-    for i in range(2, num):
-        if (num % i) == 0:
-            # if factor is found, set flag to True
-            flag = True
-            # break out of loop
-            break
-
-    # check if flag is True
-    if flag:
-        print(num, "is not a prime number")
+def add(x,y):
+    return x+y
+def subtract(x,y):
+    return x-y
+def multiply(x,y):
+    return x*y
+def divide(x,y):
+    if y != 0:
+     return x/y
     else:
-        print(num, "is a prime number")
+     return "Error! Division not possiable"
+def calculator():
+   print("Select Operation:")
+   print("1. Add")
+   print("2. Subtract")
+   print("3. Multiply")
+   print("4. Divide")
+
+   while True:
+      choice = input("Enter choice(1/2/3/4):")
+      if choice in ['1','2','3','4']:
+          num1=float(input("Enter first number:"))
+          num2=float(input("Enter second number:"))
+          if choice=='1':
+            print(f"{num1}+{num2}={add(num1, num2)}")
+          elif choice=='2':
+            print(f"{num1}-{num2}={subtract(num1, num2)}")
+          elif choice=='3':
+            print(f"{num1}*{num2}={multiply(num1, num2)}")
+          elif choice=='4':
+            print(f"{num1}/{num2}={divide(num1, num2)}")
+          next_calculation=input("do you want to perform another calculation ? (yes/no):")
+          if next_calculation.lower() != 'yes':
+             break
+      else:
+         print("invalid input")
+calculator()
